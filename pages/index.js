@@ -4,16 +4,25 @@ import AddData from '../components/AddData'
 import Notes from '../components/Notes';
 import styles1 from '../styles/AddData.module.css';
 import dataContext from '../Context/dataContext';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import Head from 'next/head'
+
+
 
 
 
 export default function Home() {
 
  
+  
+ 
   const context = useContext(dataContext);
-  const { visible, handleVisible } = context;
+  const { visible, handleVisible, database } = context;
+
+  useEffect(()=>{
+    database();
+    
+  },[ ])
 
 
   return (

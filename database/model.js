@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 import {models, model} from 'mongoose';
 
-const data2Schema = new mongoose.Schema({
+const dataSchema = new mongoose.Schema({
     
     First_name: {
         type: String,
@@ -56,6 +56,6 @@ const data2Schema = new mongoose.Schema({
 });
 
 
-const Notes = models.note || model('note',data2Schema)
+const Notes = models.note || model('note',dataSchema)
 
 export default Notes

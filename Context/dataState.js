@@ -18,6 +18,21 @@ function DataState(props) {
 
     }
 
+    async function database() {
+
+        //Making the API call to add note
+        const response = await fetch(`${host}/api/hello`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+
+            },
+
+
+        });
+        
+    }
+
     async function getNotes() {
 
         //Making the API call to add note
@@ -49,7 +64,7 @@ function DataState(props) {
             body: JSON.stringify({ First_name, Last_name, Bank_Account_no, Bank_name, Address_1, Address_2, City, Country, Zip_code })
 
         });
-        console.log("adding a new node");
+        
         const note = await response.json();
         setNotes(notes.concat(note))
 
@@ -69,9 +84,6 @@ function DataState(props) {
 
         });
         const json = await response.json();
-        console.log(json);
-
-        console.log("deleting" + id);
         const newNotes = notes.filter((note) => { return note._id !== id })
         setNotes(newNotes)
 
@@ -126,7 +138,7 @@ function DataState(props) {
 
 
     return (
-        <dataContext.Provider value={{ notes, addData, getNotes, deleteNote, editNote, handleVisible, visible, setVisible, setNotes }}>
+        <dataContext.Provider value={{ notes, addData, getNotes, deleteNote, editNote, handleVisible, visible, setVisible, setNotes, database }}>
             {props.children}
         </dataContext.Provider>
 

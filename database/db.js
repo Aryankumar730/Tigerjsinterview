@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
+import { connect } from 'mongoose';
 
 connectDB().catch(err => console.log(err));
 
